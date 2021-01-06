@@ -1,38 +1,26 @@
-// App.js
-import React, { useRef, useState } from "react";
-import * as THREE from "three";
-import { View, Text } from "react-native";
-import { Canvas, useFrame, useThree, extend } from "react-three-fiber";
+import React from "react";
+import { View } from "react-native";
+import { Canvas } from "react-three-fiber";
 import { OrbitControls } from "@react-three/drei";
-import { Physics, useBox, usePlane, useSphere } from "use-cannon";
-import { useStore } from "./Global";
+import { Physics } from "use-cannon";
 import styles from "./styles";
-
+// 床
 import Floor from "./components/Floor";
-import Player from "./components/Player";
+// サボテンたち
 import { EnemyData } from "./components/Enemy";
 
 /*
- * 1. 表示される入り口
+ * 表示される入り口
  */
 const App = () => {
-  const tapTrue = useStore((state) => state.tapTrue);
   return (
     <View style={styles.app}>
       <Canvas
         camera={{
           position: [0, 0, 10],
           near: 0.1,
-          far: 500
+          far: 500,
         }}
-        onClick={(e) => {
-          tapTrue();
-        }}
-        // onCreated={({ camera }) => {
-        //   console.log(camera);
-        //   camera.lookAt(900, 90, 0);
-        //   // camera.updateProjectionMatrix();
-        // }}
       >
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
@@ -42,9 +30,10 @@ const App = () => {
           gravity={[0, -30, 0]}
           defaultContactMaterial={{ restitution: 0 }}
         >
-          <Player />
+          {/* 横に移動するサボテンたち */}
           <EnemyData number={10} />
-          <Floor position={[0, -1, 0]} args={[1500, 0.5, 3]} />
+          {/* 床 */}
+          <Floor position={[0, -1, 0]} args={[100, 0.5, 100]} />
         </Physics>
       </Canvas>
     </View>

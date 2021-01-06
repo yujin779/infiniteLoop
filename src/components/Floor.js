@@ -1,25 +1,21 @@
-import React, { useRef, useState } from "react";
-import * as THREE from "three";
-import { View, Text } from "react-native";
-import { Canvas, useFrame, useThree, extend } from "react-three-fiber";
-import { Physics, useBox, usePlane, useSphere } from "use-cannon";
-// import { createGlobalState } from "react-hooks-global-state";
+import React from "react";
+import { useBox } from "use-cannon";
 
 /*
- * 1. 表示される入り口
+ * 床
  */
-const Floor = ({ position, args, color }) => {
+const Floor = ({ position, args }) => {
   const [ref] = useBox(() => ({
     type: "Static",
     mass: 0,
     args: args,
     position: position,
-    name: "floor"
+    name: "floor",
   }));
   return (
     <mesh ref={ref} name="floor">
       <boxBufferGeometry attach="geometry" args={args} />
-      <meshStandardMaterial attach="material" color={"hotpink"} />
+      <meshStandardMaterial attach="material" color={"lightgreen"} />
     </mesh>
   );
 };
