@@ -1,0 +1,27 @@
+{
+  "name": "react-native",
+  "version": "1.0.0",
+  "description": "React Native for Web starter template",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "@react-three/drei": "2.2.13",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native-size-matters": "0.4.0",
+    "react-native-web": "0.13.16",
+    "react-scripts": "3.4.1",
+    "react-three-fiber": "4.2.21",
+    "three": "0.123.0",
+    "use-asset": "0.2.0",
+    "use-cannon": "0.5.3",
+    "zustand": "3.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
