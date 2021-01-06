@@ -13,7 +13,7 @@ const Floor = ({ position, args }) => {
     name: "floor",
   }));
   return (
-    <mesh ref={ref} name="floor">
+    <mesh ref={ref} name="floor" receiveShadow>
       <boxBufferGeometry attach="geometry" args={args} />
       <meshStandardMaterial attach="material" color={"lightgreen"} />
     </mesh>

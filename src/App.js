@@ -16,15 +16,15 @@ const App = () => {
   return (
     <View style={styles.app}>
       <Canvas
+        shadowMap
         camera={{
-          position: [0, 0, 10],
+          position: [0, 2, 10],
           near: 0.1,
-          far: 500,
+          far: 50,
         }}
       >
         <ambientLight intensity={0.5} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-        <pointLight position={[-10, -10, -10]} />
+        <pointLight position={[-20, 30, 30]} intensity={0.4} castShadow />
         <OrbitControls />
         <Physics
           gravity={[0, -30, 0]}

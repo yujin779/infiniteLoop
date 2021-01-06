@@ -15,25 +15,25 @@ const TypesOfEnemies = [
       name: "littleCactus",
       gltfNum: 0,
       // 位置修正
-      position: { x: -2.6, y: -0.7, z: 0 },
+      position: { x: -2.6, y: -0.9, z: 0 },
       rotation: { x: 1.5 },
     },
     // 当たり判定ボックス
     colider: {
       args: [1.4, 1, 1],
-      position: { y: -0.1 },
+      position: { y: -0.3 },
     },
   },
   {
     obj: {
       name: "bigCactus",
       gltfNum: 1,
-      position: { x: -2.6, y: -1, z: 0 },
+      position: { x: -3.6, y: -1, z: -1.8 },
       rotation: { x: 1.5 },
     },
     colider: {
-      args: [1.4, 1, 1],
-      position: { y: -0.1 },
+      args: [1, 2.5, 1],
+      position: { y: 0.5 },
     },
   },
 ];
@@ -60,7 +60,8 @@ const EnemyColider = ({ value, index }) => {
         attach="material"
         color={"orange"}
         transparent
-        opacity={0.3}
+        // 完全透明
+        opacity={0}
       />
     </mesh>
   );
@@ -101,6 +102,7 @@ const EnemyObj = ({ value }) => {
   return (
     <group>
       <mesh
+        castShadow
         ref={ref}
         material={nodes.ObjObject.material}
         geometry={nodes.ObjObject.geometry}
